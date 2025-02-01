@@ -1,6 +1,6 @@
 Name:		libjpeg-turbo
 Version:	1.2.90
-Release:	9%{?dist}
+Release:	10%{?dist}
 Summary:	A MMX/SSE2 accelerated library for manipulating JPEG image files
 
 Group:		System Environment/Libraries
@@ -33,6 +33,8 @@ Patch5:		libjpeg-turbo12-CVE-2016-3616_CVE-2018-11213_CVE-2018-11214.patch
 Patch6:		libjpeg-turbo12-CVE-2018-11813.patch
 Patch7:		libjpeg-turbo12-CVE-2018-14498.patch
 Patch8:     libjpeg-turbo-CVE-2020-17541.patch
+Patch9:     libjpeg-turbo12-CVE-2019-2201.patch
+Patch10:    libjpeg-turbo12-CVE-2020-13790.patch
 
 %description
 The libjpeg-turbo package contains a library of functions for manipulating
@@ -108,6 +110,8 @@ will manipulate JPEG files using the TurboJPEG library.
 %patch6 -p1 -b .CVE-2018-11813
 %patch7 -p1 -b .CVE-2018-14498
 %patch8 -p1 -b .CVE-2020-17541
+%patch9 -p1 -b .CVE-2019-2201
+%patch10 -p1 -b .CVE-2020-13790
 
 %build
 autoreconf -fiv
@@ -183,6 +187,10 @@ make test
 %{_libdir}/pkgconfig/libturbojpeg.pc
 
 %changelog
+* Thu Jan 02 2025 Jonathan Dieter <jdieter@ciq.com> - 1.2.90-10
+- Fix CVE-2019-2201
+- Fix CVE-2020-13790
+
 * Wed Dec 04 2024 Pratham Patel <ppatel@ciq.com> - 1.2.90-9
 - Fix CVE-2020-17541
 
